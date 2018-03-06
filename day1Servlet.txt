@@ -1,0 +1,111 @@
+servelet platform and server independent
+dyanamically generate response
+
+
+                           
+service is responsible for doget and doPost methods
+becoz of that we cannot override Service method in HTTPServelt
+HttpServlet methods:
+GET, HEAD, PUT, POST, DELETE, OPTIONS and TRACE
+
+
+init, service,destroy,getservletinfo
+getservletConfig()
+in servlet interface
+u override it in generic servlet except service method
+generic is a abstract class
+
+
+1 context per web application
+context created by container immediately
+when app is deployed
+
+when we invoke the servlet ServeltConfig is created by ServletContainer
+init-initializing values of all data
+
+getServeltContext
+getServeltConfig
+we can use in our pg
+
+
+doget doget service
+throws IO and Servelt Exception
+
+
+
+chapter-4
+
+default method-get
+get
+Bookmark retriving home page
+carries less data as data appends in URL-get
+
+-post
+UTP,bank transfer
+crries more data
+sercure
+
+
+Request parameters:
+The ServletRequest (or HttpServletRequest object if using HttpServlet) contains a lot of
+information. We shall see how servlet processes form parameters.
+public String ServletRequest.getParameter (String name): This returns the
+value of the named parameter as a String or null if parameter wasn’t specified.
+public String[] ServletRequest.getParameterValues (String name): It returns
+values of named parameter as a String array if parameter could have multiple
+values, as in the case of list element with multiple select.
+public Enumeration ServletRequest.getParameterNames(): It returns a list of
+parameter names.
+public String ServletRequest.getQueryString(): It returns the raw query string of
+the request.
+
+
+String filename = request.getPathTranslated()
+This method returns the extra path information translated to a real file system path or
+null if there is no extra path information.
+
+
+
+chapter-5
+server can send 3 things to client:
+1.status code 2.any no of HTTP response header 3. response body
+
+Status Codes:
+-A Servlet can use the setStatus() method to set response status code.
+-A servlet can use sendError(int sc) (sc indicates the
+status code to indicate error during handling of request.
+-Status codes are three-digit integer values, the first digit of which specifies one
+of five classes of response. So we have 1xx: Informational, 2xx: Success, 3xx:
+Redirection, 4xx: Client Error, and 5xx: Server Error.
+-SC_OK for status code 200 and SC_NOT_FOUND for
+status code 404!
+
+
+
+
+A call to setHeader() that tells the client to reload this same
+servlet after showing its current content for three seconds:
+setHeader(“Refresh”, “3” );
+setHeader(“Refresh”, “3;URL=https://ispace.igate.com”);
+
+
+Methods for setting arbitrary response headers are as follows:
+The setHeader( String name, String value ) method sets the value
+of the named header as a string. For example:
+res.setHeader(“Location”, new_location);
+Use the setDateHeader( String name, long date ) method, if there
+is a need to specify a timestamp for a header. It sets the value of
+the named header with the given name and date-value
+Use the setIntHeader( String name, int value) method to specify
+an integer value for a header
+The containsHeader() method returns a boolean indicating
+whether the named response header has already been set
+Other than these methods, there are some additional methods to set
+response headers:
+setContentType: Sets the Content- Type header
+setContentLength: Sets the Content- Length header
+addCookie: Adds a value to the Set- Cookie header
+sendRedirect: Changes status code to redirection i.e. 300 and a specifies the client to request another page
+
+sendRedirect Adds name of page in URl
+
